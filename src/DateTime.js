@@ -451,7 +451,7 @@ export default class Datetime extends React.Component {
 		let needsUpdate = false;
 		let thisProps = this.props;
 
-		['locale', 'utc', 'displayZone', 'dateFormat', 'timeFormat'].forEach( function(p) {
+		['locale', 'utc', 'displayTimeZone', 'dateFormat', 'timeFormat'].forEach( function(p) {
 			prevProps[p] !== thisProps[p] && (needsUpdate = true);
 		});
 
@@ -531,9 +531,8 @@ export default class Datetime extends React.Component {
 	 * @public
 	 */
 	setViewDate( date ) {
-		let me = this;
 		let logError = function() {
-			return me.log( 'Invalid date passed to the `setViewDate` method: ' + date );
+			return log( 'Invalid date passed to the `setViewDate` method: ' + date );
 		};
 
 		if ( !date ) return logError();
